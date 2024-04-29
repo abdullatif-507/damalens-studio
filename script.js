@@ -1,3 +1,26 @@
+ // Add a click event listener to the #bars checkbox
+document.getElementById("bars").addEventListener("click", function() {
+  // If the checkbox is checked, add the "checked" class to the navigation div
+  if (this.checked) {
+    document.querySelector(".navigation").classList.add("checked");
+  } else {
+    // Otherwise, remove the "checked" class from the navigation div
+    document.querySelector(".navigation").classList.remove("checked");
+  }
+});
+
+// Add a click event listener to all links within the navigation
+document.querySelectorAll(".navigation a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    // Remove the "checked" class from the navigation div
+    document.querySelector(".navigation").classList.remove("checked");
+
+    // Uncheck the #bars checkbox
+    document.getElementById("bars").checked = false;
+  });
+});
+
+
 const navbar = document.getElementById('navbar');
 window.onscroll= function () {
     scrolllFunction()
@@ -44,3 +67,5 @@ $(function () {
 		$.magnificPopup.close();
 	});
 });
+
+
